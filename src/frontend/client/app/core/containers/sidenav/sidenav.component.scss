@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mat-toolbar {
+  .mat-icon-button {
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+}
+
+.mat-nav-list {
+  flex: 1;
+}

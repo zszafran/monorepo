@@ -1,0 +1,13 @@
+load("@io_bazel_rules_sass//:defs.bzl", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+sass_library(
+    name = "components_theme",
+    srcs = [
+        "components.theme.scss",
+    ],
+    deps = [
+        "//src/frontend/client/app/shared/components/page:page_theme",
+    ],
+)

@@ -1,0 +1,34 @@
+@import 'src/frontend/client/app/core/core.theme';
+@import 'src/frontend/client/app/home/home.component.theme';
+@import 'src/frontend/client/app/shared/shared.theme';
+
+@mixin app-component-theme($theme) {
+  @include core-theme($theme);
+  @include home-theme($theme);
+  @include shared-theme($theme);
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+
+  body {
+    background-color: mat-color($background, background);
+  }
+
+  app-component {
+    .mat-drawer {
+      background: transparent;
+      @include mat-elevation(2);
+    }
+  }
+}
+
+@mixin app-component-typography($config) {
+  @include core-typography($config);
+  @include home-typography($config);
+  @include shared-typography($config);
+
+  body {
+    @include mat-typography-level-to-styles($config, body-1);
+  }
+}

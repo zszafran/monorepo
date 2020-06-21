@@ -1,0 +1,12 @@
+@import 'src/frontend/client/app/core/containers/header/header.component.theme';
+@import 'src/frontend/client/app/core/containers/sidenav/sidenav.component.theme';
+
+@mixin core-containers-theme($theme) {
+  @include core-containers-header-theme($theme);
+  @include core-containers-sidenav-theme($theme);
+}
+
+@mixin core-containers-typography($config) {
+  @include core-containers-header-typography($config);
+  @include core-containers-sidenav-typography($config);
+}

@@ -1,0 +1,32 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "sidenav",
+    srcs = [
+        "index.ts",
+        "sidenav.component.ts",
+        "sidenav.module.ts",
+    ],
+    angular_assets = [
+        ":sidenav-styles",
+        "sidenav.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "@npm//@angular/core",
+        "@npm//@angular/material",
+    ],
+)
+
+sass_binary(
+    name = "sidenav-styles",
+    src = "sidenav.component.scss",
+)
+
+sass_library(
+    name = "sidenav_theme",
+    srcs = ["sidenav.component.theme.scss"],
+)

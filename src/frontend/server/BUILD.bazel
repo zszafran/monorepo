@@ -1,0 +1,33 @@
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_library(
+    name = "app",
+    srcs = glob(
+        include = ["**/*.ts"],
+        exclude = ["**/*spec.ts"],
+    ),
+    data = [],
+    tsconfig = "//:tsconfig.server.json",
+    deps = [
+        "//src/frontend/client:main_server",
+        "@npm//@nestjs",
+        "@npm//@types",
+        "@npm//tslib",
+    ],
+)
+
+nodejs_binary(
+    name = "server",
+    data = [
+        ":app",
+        "//src/frontend/client:pwa",
+    ],
+    # entry_point defined as label:
+    # https://github.com/bazelbuild/rules_nodejs/releases/tag/0.31.1
+    entry_point = ":main.ts",
+    node_modules = "@npm//:node_modules",
+    templated_args = ["--node_options=--expose-gc"],
+)

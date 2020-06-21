@@ -1,0 +1,15 @@
+common --experimental_allow_incremental_repository_updates
+
+# startup --output_user_root=/workspace/bazel-cache
+
+build --jobs=25
+build --symlink_prefix=dist/
+build --nolegacy_external_runfiles
+build --incompatible_strict_action_env
+build --define=angular_ivy_enabled=True
+# build --verbose_failures
+
+run --incompatible_strict_action_env
+
+coverage --instrument_test_targets
+

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "incremental": false,
+    "importHelpers": true,
+    "alwaysStrict": true,
+    "types": []
+  },
+  "exclude": ["node_modules", "dist", "bazel-out"]
+}

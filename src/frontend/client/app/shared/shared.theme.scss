@@ -1,0 +1,9 @@
+@import 'src/frontend/client/app/shared/components/components.theme';
+
+@mixin shared-theme($theme) {
+  @include shared-components-theme($theme);
+}
+
+@mixin shared-typography($config) {
+  @include shared-components-typography($config);
+}

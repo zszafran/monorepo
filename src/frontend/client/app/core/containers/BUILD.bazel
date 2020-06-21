@@ -1,0 +1,29 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "containers",
+    srcs = [
+        "containers.module.ts",
+        "index.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "//src/frontend/client/app/core/containers/header",
+        "//src/frontend/client/app/core/containers/sidenav",
+        "@npm//@angular/core",
+    ],
+)
+
+sass_library(
+    name = "containers_theme",
+    srcs = [
+        "containers.theme.scss",
+    ],
+    deps = [
+        "//src/frontend/client/app/core/containers/header:header_theme",
+        "//src/frontend/client/app/core/containers/sidenav:sidenav_theme",
+    ],
+)

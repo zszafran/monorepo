@@ -1,0 +1,9 @@
+@import 'src/frontend/client/app/core/containers/containers.theme';
+
+@mixin core-theme($theme) {
+  @include core-containers-theme($theme);
+}
+
+@mixin core-typography($config) {
+  @include core-containers-typography($config);
+}

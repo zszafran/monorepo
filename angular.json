@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "src",
+  "projects": {
+    "frontend": {
+      "root": "",
+      "sourceRoot": "src/frontend/client",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@bazel/angular:build",
+          "options": {
+            "targetLabel": "//src/frontend/client:package",
+            "bazelCommand": "build"
+          }
+        },
+        "serve": {
+          "builder": "@bazel/angular:build",
+          "options": {
+            "targetLabel": "//src/frontend/client:devserver",
+            "bazelCommand": "run",
+            "watch": true
+          },
+          "configurations": {
+            "production": {
+              "targetLabel": "//src:prodserver"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "frontend"
+}

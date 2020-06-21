@@ -1,0 +1,20 @@
+@mixin core-containers-header-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+
+  app-core-header-component {
+    .mat-toolbar {
+      background-color: mat-color($background, background);
+      color: mat-color($foreground, text);
+    }
+  }
+}
+
+@mixin core-containers-header-typography($config) {
+  app-core-header-component {
+    .title {
+      @include mat-typography-level-to-styles($config, subheading-2);
+    }
+  }
+}

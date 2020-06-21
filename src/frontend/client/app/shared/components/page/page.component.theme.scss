@@ -1,0 +1,16 @@
+@mixin shared-components-page-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  app-shared-page-component {
+    // Reserved
+  }
+}
+
+@mixin shared-components-page-typography($config) {
+  app-shared-page-component {
+    // Reserved
+  }
+}

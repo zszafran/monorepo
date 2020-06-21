@@ -1,0 +1,34 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "home",
+    srcs = [
+        "home.component.ts",
+        "home.module.ts",
+        "home-routing.module.ts",
+        "index.ts",
+    ],
+    angular_assets = [
+        ":home-styles",
+        "home.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "//src/frontend/client/app/shared/components/page",
+        "@npm//@angular/core",
+        "@npm//@angular/router",
+    ],
+)
+
+sass_binary(
+    name = "home-styles",
+    src = "home.component.scss",
+)
+
+sass_library(
+    name = "home_theme",
+    srcs = ["home.component.theme.scss"],
+)

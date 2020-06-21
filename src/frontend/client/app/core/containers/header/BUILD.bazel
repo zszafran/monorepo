@@ -1,0 +1,32 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "header",
+    srcs = [
+        "header.component.ts",
+        "header.module.ts",
+        "index.ts",
+    ],
+    angular_assets = [
+        ":header-styles",
+        "header.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "@npm//@angular/core",
+        "@npm//@angular/material",
+    ],
+)
+
+sass_binary(
+    name = "header-styles",
+    src = "header.component.scss",
+)
+
+sass_library(
+    name = "header_theme",
+    srcs = ["header.component.theme.scss"],
+)

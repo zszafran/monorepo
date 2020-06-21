@@ -1,0 +1,31 @@
+load("@npm_bazel_typescript//:index.bzl", "ts_config")
+load("@k8s_deploy//:defaults.bzl", "k8s_deploy")
+
+package(default_visibility = ["//:__subpackages__"])
+
+exports_files([
+    "rollup.config.js",
+    "tsconfig.json",
+    "tsconfig.client.json",
+    "tsconfig.server.json",
+])
+
+ts_config(
+    name = "tsconfig-server",
+    src = "tsconfig.server.json",
+    deps = [":tsconfig.json"],
+)
+
+ts_config(
+    name = "tsconfig-client",
+    src = "tsconfig.client.json",
+    deps = [":tsconfig.json"],
+)
+
+k8s_deploy(
+    name = "deploy",
+    images = {
+        "gcr.io/internal-200822/src:nodejs_image": "//src:image",
+    },
+    template = ":deployment.yaml",
+)
