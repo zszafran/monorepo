@@ -4,11 +4,12 @@
     "removeComments": true,
     "experimentalDecorators": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "incremental": false,
     "importHelpers": true,
     "alwaysStrict": true,
-    "types": []
+    "types": [],
+    "preserveSymlinks": true
   },
-  "exclude": ["node_modules", "dist", "bazel-out"]
+  "exclude": ["dist", "bazel-out"]
 }

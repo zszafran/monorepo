@@ -16,8 +16,13 @@ ng_ts_library(
     ],
     tsconfig = "//:tsconfig.client.json",
     deps = [
+        "//src/frontend/client/app/core/store/layout:selectors",
+        "//src/frontend/client/app/core/store/layout:state",
+        "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/material",
+        "@npm//@ngrx/store",
+        "@npm//rxjs",
     ],
 )
 

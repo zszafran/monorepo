@@ -7,7 +7,9 @@ ng_ts_library(
     name = "app",
     srcs = [
         "app.component.ts",
+        "app.dev.module.ts",
         "app.module.ts",
+        "app.prod.module.ts",
         "app-routing.module.ts",
     ],
     angular_assets = [
@@ -22,8 +24,11 @@ ng_ts_library(
         "@npm//@angular/material",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
+        "@npm//@ngrx/effects",
         "@npm//@ngrx/store",
+        "@npm//@ngrx/store-devtools",
         "@npm//@nguniversal/common",
+        "@npm//ngrx-store-logger",
     ],
 )
 

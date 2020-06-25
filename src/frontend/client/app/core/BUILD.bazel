@@ -12,6 +12,7 @@ ng_ts_library(
     tsconfig = "//:tsconfig.client.json",
     deps = [
         "//src/frontend/client/app/core/containers",
+        "//src/frontend/client/app/core/store",
         "@npm//@angular/core",
     ],
 )

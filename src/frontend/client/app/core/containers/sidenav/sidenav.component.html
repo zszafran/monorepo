@@ -1,32 +1,32 @@
 <mat-toolbar>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="toggleExpanded()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Test</span>
+  <span *ngIf="isExpanded$ | async">Application</span>
 </mat-toolbar>
 <mat-nav-list>
   <mat-list-item>
     <mat-icon mat-list-icon>home</mat-icon>
-    <div mat-line>Home</div>
+    <div mat-line *ngIf="isExpanded$ | async">Home</div>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon mat-list-icon>dashboard</mat-icon>
-    <div mat-line>Dashboard</div>
+    <div mat-line *ngIf="isExpanded$ | async">Dashboard</div>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon mat-list-icon>account_box</mat-icon>
-    <div mat-line>Profile</div>
+    <div mat-line *ngIf="isExpanded$ | async">Profile</div>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon mat-list-icon>whatshot</mat-icon>
-    <div mat-line>Tending</div>
+    <div mat-line *ngIf="isExpanded$ | async">Tending</div>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon mat-list-icon>person_search</mat-icon>
-    <div mat-line>Browse</div>
+    <div mat-line *ngIf="isExpanded$ | async">Browse</div>
   </mat-list-item>
 </mat-nav-list>

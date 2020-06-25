@@ -11,11 +11,21 @@
       background-color: mat-color($accent, 500);
       color: mat-contrast($accent, 500);
     }
+    .mat-nav-list {
+      .mat-icon {
+        color: mat-color($foreground, secondary-text);
+        fill: mat-color($foreground, secondary-text);
+      }
+    }
   }
 }
 
 @mixin core-containers-sidenav-typography($config) {
   app-core-sidenav-component {
-    // Reserved
+    .mat-nav-list {
+      .mat-list-text {
+        @include mat-typography-level-to-styles($config, subheading-2);
+      }
+    }
   }
 }

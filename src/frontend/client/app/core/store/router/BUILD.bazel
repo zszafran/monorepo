@@ -1,0 +1,47 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "state",
+    srcs = [
+        "router.state.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "@npm//@angular/router",
+        "@npm//@ngrx/router-store",
+    ],
+)
+
+ng_ts_library(
+    name = "selectors",
+    srcs = [
+        "router.selectors.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":state",
+        "//src/frontend/client/app/core/store:feature",
+        "//src/frontend/client/app/core/store:state",
+        "@npm//@angular/router",
+        "@npm//@ngrx/router-store",
+        "@npm//@ngrx/store",
+    ],
+)
+
+ng_ts_library(
+    name = "router",
+    srcs = [
+        "index.ts",
+        "router.module.ts",
+        "router.serializer.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":state",
+        "@npm//@angular/core",
+        "@npm//@angular/router",
+        "@npm//@ngrx/router-store",
+    ],
+)

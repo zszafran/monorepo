@@ -107,6 +107,7 @@ ts_devserver(
         "@npm//:node_modules/tslib/tslib.js",
         ":rxjs_umd_modules",
         "@npm//date-fns:date-fns.umd.js",
+        "@npm//ngrx-store-logger:ngrx-store-logger__umd",
     ],
     # Serve these files in addition to the JavaScript bundle
     static_files = _ASSETS + [

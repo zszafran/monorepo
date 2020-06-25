@@ -2,7 +2,6 @@
   "name": "Monorepo",
   "dockerFile": "Dockerfile",
   "settings": {
-    "workbench.preferredDarkColorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "terminal.explorerKind": "external",
@@ -12,8 +11,10 @@
     "bazel.buildifierFixOnFormat": true,
     "remote.containers.workspaceMountConsistency": "delegated",
     "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
     "eslint.format.enable": true,
     "eslint.packageManager": "yarn",
+    "eslint.validate": ["javascript", "typescript"],
     "prettier.packageManager": "yarn",
     "prettier.requireConfig": true,
     "javascript.format.enable": true,
@@ -25,7 +26,7 @@
   "appPort": ["8080:8080", "35729:35729"],
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
-    "source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind",
+    //"source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind",
     "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
   "extensions": [
@@ -36,7 +37,6 @@
     "codezombiech.gitignore",
     "davidanson.vscode-markdownlint",
     "dbaeumer.vscode-eslint",
-    "devondcarew.bazel-code",
     "folke.vscode-monorepo-workspace",
     "ms-azuretools.vscode-docker",
     "ms-kubernetes-tools.vscode-kubernetes-tools",
@@ -47,11 +47,9 @@
     "gamunu.vscode-yarn",
     "unional.vscode-sort-package-json",
     "rvest.vs-code-prettier-eslint",
-    "amatiasq.sort-imports",
     "eamodio.gitlens",
     "christian-kohler.npm-intellisense",
     "editorconfig.editorconfig",
-    "dracula-theme.theme-dracula",
     "dkneeland.yarn-task-provider",
     "github.vscode-pull-request-github"
   ]

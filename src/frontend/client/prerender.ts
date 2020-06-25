@@ -1,9 +1,11 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-import { readFileSync, writeFileSync } from 'fs';
 import { renderModule } from '@angular/platform-server';
 import * as domino from 'domino';
+import { readFileSync, writeFileSync } from 'fs';
+
+import { AppServerModule } from './app/app.server.module';
 
 const rootIndexPathFlagIdx = process.argv.findIndex((arg) => arg === '--index');
 const rootIndexPath = process.argv[rootIndexPathFlagIdx + 1];
@@ -29,8 +31,6 @@ global.Event.prototype = win.Event.prototype;
 global.document = win.document;
 global.HTMLInputElement = win.HTMLInputElement;
 global.HTMLDocument = win.HTMLDocument;
-
-import { AppServerModule } from './app/app.server.module';
 
 const renderProcesses: Array<Promise<any>> = routes.map((url, i) => {
   return renderModule(AppServerModule, { url, document })

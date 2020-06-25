@@ -1,4 +1,5 @@
-import { AppModule } from './app/app.module';
 import { platformBrowser } from '@angular/platform-browser';
 
-platformBrowser().bootstrapModule(AppModule);
+import { AppDevModule } from './app/app.dev.module';
+
+platformBrowser().bootstrapModule(AppDevModule);

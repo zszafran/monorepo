@@ -6,11 +6,25 @@
 
 .mat-toolbar {
   .mat-icon-button {
-    margin-left: -4px;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
+    padding: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  > span {
+    margin-left: 12px;
     margin-right: 8px;
   }
 }
 
 .mat-nav-list {
   flex: 1;
+
+  .mat-list-text {
+    padding-right: 8px;
+  }
 }

@@ -29,9 +29,9 @@ $app-theme: (
     slider-off-active: rgba(black, 0.38),
   ),
   background: (
-    status-bar: map_get($mat-grey, 300),
-    app-bar: map_get($mat-grey, 100),
-    background: map_get($mat-grey, 50),
+    status-bar: map_get($mat-grey, 400),
+    app-bar: map_get($mat-grey, 200),
+    background: map_get($mat-grey, 100),
     hover: rgba(black, 0.04),
     card: white,
     dialog: white,

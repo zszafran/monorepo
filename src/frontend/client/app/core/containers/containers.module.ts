@@ -1,5 +1,6 @@
-import { HeaderModule } from './header';
 import { NgModule } from '@angular/core';
+
+import { HeaderModule } from './header';
 import { SidenavModule } from './sidenav';
 
 @NgModule({

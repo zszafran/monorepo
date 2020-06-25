@@ -1,15 +1,21 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 2020,
     project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'simple-import-sort', 'import'],
+  plugins: [
+    '@typescript-eslint/eslint-plugin',
+    'simple-import-sort',
+    'import',
+    'prettier',
+    'rxjs',
+  ],
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
   root: true,
   env: {
@@ -18,6 +24,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'prettier/prettier': ['error'],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -26,5 +33,12 @@ module.exports = {
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
+    'arrow-parens': ['error', 'always'],
+    'rxjs/no-async-subscribe': 'error',
+    'rxjs/no-ignored-observable': 'error',
+    'rxjs/no-ignored-subscription': 'error',
+    'rxjs/no-nested-subscribe': 'error',
+    'rxjs/no-unbound-methods': 'error',
+    'rxjs/throw-error': 'error',
   },
 };

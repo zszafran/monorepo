@@ -1,9 +1,10 @@
-import { AngularUniversalModule } from '@nestjs/ng-universal';
-import { AppController } from './app.controller';
-import { AppServerModule } from 'monorepo/src/frontend/client/main.server';
-import { AppService } from './app.service';
 import { Module } from '@nestjs/common';
+import { AngularUniversalModule } from '@nestjs/ng-universal';
+import { AppServerModule } from 'monorepo/src/frontend/client/main.server';
 import { join } from 'path';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [

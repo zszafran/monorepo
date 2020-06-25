@@ -1,0 +1,50 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "feature",
+    srcs = [
+        "store.feature.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":state",
+        "@npm//@ngrx/store",
+    ],
+)
+
+ng_ts_library(
+    name = "state",
+    srcs = [
+        "store.state.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "//src/frontend/client/app/core/store/layout:state",
+        "//src/frontend/client/app/core/store/router:state",
+        "@npm//@ngrx/router-store",
+    ],
+)
+
+ng_ts_library(
+    name = "store",
+    srcs = [
+        "index.ts",
+        "store.effects.ts",
+        "store.module.ts",
+        "store.reducers.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":feature",
+        ":state",
+        "//src/frontend/client/app/core/store/layout",
+        "//src/frontend/client/app/core/store/router",
+        "//src/frontend/client/app/shared/utils/ngrx:reducer",
+        "@npm//@angular/core",
+        "@npm//@ngrx/effects",
+        "@npm//@ngrx/router-store",
+        "@npm//@ngrx/store",
+    ],
+)

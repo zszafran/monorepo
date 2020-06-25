@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": false,
     "lib": ["es2018", "dom"],
     "target": "es2015",
     "sourceMap": true,
