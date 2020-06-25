@@ -8,6 +8,15 @@ workspace(
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
+    name = "bazel_skylib",
+    sha256 = "97e70364e9249702246c0e9444bccdc4b847bed1eb03c5a3ece4f83dfe6abc44",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.0.2/bazel-skylib-1.0.2.tar.gz",
+        "https://github.com/bazelbuild/bazel-skylib/releases/download/1.0.2/bazel-skylib-1.0.2.tar.gz",
+    ],
+)
+
+http_archive(
     name = "build_bazel_rules_nodejs",
     sha256 = "84abf7ac4234a70924628baa9a73a5a5cbad944c4358cf9abdb4aab29c9a5b77",
     urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/1.7.0/rules_nodejs-1.7.0.tar.gz"],
@@ -33,6 +42,32 @@ http_archive(
     strip_prefix = "rules_k8s-0.3.1",
     urls = ["https://github.com/bazelbuild/rules_k8s/releases/download/v0.3.1/rules_k8s-v0.3.1.tar.gz"],
 )
+
+http_archive(
+    name = "io_bazel_rules_go",
+    sha256 = "a8d6b1b354d371a646d2f7927319974e0f9e52f73a2452d2b3877118169eb6bb",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.23.3/rules_go-v0.23.3.tar.gz",
+        "https://github.com/bazelbuild/rules_go/releases/download/v0.23.3/rules_go-v0.23.3.tar.gz",
+    ],
+)
+
+http_archive(
+    name = "bazel_gazelle",
+    sha256 = "cdb02a887a7187ea4d5a27452311a75ed8637379a1287d8eeb952138ea485f7d",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
+    ],
+)
+
+# ==================================================================
+# SkyLib
+# ==================================================================
+
+load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+
+bazel_skylib_workspace()
 
 # ==================================================================
 # Node JS
@@ -124,6 +159,16 @@ load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 sass_repositories()
 
 # ==================================================================
+# GoLang
+# ==================================================================
+
+load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+
+go_rules_dependencies()
+
+go_register_toolchains()
+
+# ==================================================================
 # Docker
 # ==================================================================
 
@@ -157,3 +202,11 @@ k8s_defaults(
     ]),
     kind = "deployment",
 )
+
+# ==================================================================
+# Gazelle
+# ==================================================================
+
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
+
+gazelle_dependencies()

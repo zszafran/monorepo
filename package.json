@@ -8,6 +8,7 @@
   "scripts": {
     "frontend:client:devserver": "ibazel  run //src/frontend/client:devserver",
     "frontend:server": "ibazel run //src/frontend/server",
+    "gazelle": "bazelisk run //:gazelle",
     "postinstall": "ngcc",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
