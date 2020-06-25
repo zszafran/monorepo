@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 
-import { NonDispatchingEffect } from '../../../shared/utils/ngrx/effects';
 import * as actions from './layout.actions';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class LayoutEffects implements OnInitEffects {
     return actions.init();
   }
 
-  init$: NonDispatchingEffect = createEffect(
+  init$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(actions.init),

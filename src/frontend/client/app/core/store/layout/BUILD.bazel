@@ -10,7 +10,6 @@ ng_ts_library(
     ],
     tsconfig = "//:tsconfig.client.json",
     deps = [
-        "//src/frontend/client/app/shared/utils/ngrx:actions",
         "@npm//@ngrx/store",
     ],
 )
@@ -39,8 +38,6 @@ ng_ts_library(
     tsconfig = "//:tsconfig.client.json",
     deps = [
         ":state",
-        "//src/frontend/client/app/shared/utils/ngrx:effects",
-        "//src/frontend/client/app/shared/utils/ngrx:reducer",
         "@npm//@angular/core",
         "@npm//@ngrx/effects",
         "@npm//@ngrx/store",

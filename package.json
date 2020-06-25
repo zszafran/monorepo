@@ -9,9 +9,10 @@
     "frontend:client:devserver": "ibazel  run //src/frontend/client:devserver",
     "frontend:server": "ibazel run //src/frontend/server",
     "gazelle": "bazelisk run //:gazelle",
-    "postinstall": "ngcc",
+    "postinstall": "patch-package --patch-dir ./src/patches && ngcc",
     "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "lint:fix": "eslint --fix ./src",
+    "up": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
     "@angular/animations": "^9.1.11",
@@ -80,6 +81,7 @@
     "karma-jasmine": "^3.3.1",
     "karma-requirejs": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
+    "patch-package": "^6.2.2",
     "prettier": "^2.0.5",
     "prettier-plugin-packagejson": "^2.2.5",
     "protractor": "^7.0.0",
@@ -91,6 +93,6 @@
     "ts-node": "^8.10.2",
     "tsconfig-paths": "^3.9.0",
     "tsutils": "^3.17.1",
-    "typescript": "3.9.5"
+    "typescript": "3.8.3"
   }
 }

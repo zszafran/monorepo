@@ -41,7 +41,6 @@ ng_ts_library(
         ":state",
         "//src/frontend/client/app/core/store/layout",
         "//src/frontend/client/app/core/store/router",
-        "//src/frontend/client/app/shared/utils/ngrx:reducer",
         "@npm//@angular/core",
         "@npm//@ngrx/effects",
         "@npm//@ngrx/router-store",

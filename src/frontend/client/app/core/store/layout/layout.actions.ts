@@ -1,21 +1,17 @@
 import { createAction } from '@ngrx/store';
 
-import { TypedActionCreator } from '../../../shared/utils/ngrx/actions';
-
 const NAMESPACE = '[CORE][LAYOUT]';
 
-export const init: TypedActionCreator<string> = createAction(
-  `${NAMESPACE} Init`,
-);
+export const init = createAction(`${NAMESPACE} Init`);
 
-export const expandLeftSidenav: TypedActionCreator<string> = createAction(
+export const expandLeftSidenav = createAction(
   `${NAMESPACE} Expand Left Sidenav`,
 );
 
-export const collapseLeftSidenav: TypedActionCreator<string> = createAction(
+export const collapseLeftSidenav = createAction(
   `${NAMESPACE} Collapse Left Sidenav`,
 );
 
-export const toggleLeftSidenav: TypedActionCreator<string> = createAction(
+export const toggleLeftSidenav = createAction(
   `${NAMESPACE} Toggle Left Sidenav`,
 );

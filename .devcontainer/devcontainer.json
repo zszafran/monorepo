@@ -10,6 +10,7 @@
     "bazel.executable": "/usr/local/bin/bazel",
     "bazel.buildifierFixOnFormat": true,
     "remote.containers.workspaceMountConsistency": "delegated",
+    "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
     "eslint.format.enable": true,
@@ -51,6 +52,7 @@
     "christian-kohler.npm-intellisense",
     "editorconfig.editorconfig",
     "dkneeland.yarn-task-provider",
-    "github.vscode-pull-request-github"
+    "github.vscode-pull-request-github",
+    "rafaelmaiolla.diff"
   ]
 }

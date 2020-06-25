@@ -1,10 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { TypedReducer } from '../../../shared/utils/ngrx/reducer';
 import * as actions from './layout.actions';
-import { INITIAL_STATE, State } from './layout.state';
+import { INITIAL_STATE } from './layout.state';
 
-export const reducer: TypedReducer<State> = createReducer(
+export const reducer = createReducer(
   INITIAL_STATE,
   on(actions.expandLeftSidenav, (state) => ({
     ...state,
