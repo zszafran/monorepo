@@ -2,29 +2,79 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  z-index: 1;
+}
+
+$icon-size: 24px;
+$icon-padding: 4px;
+$width: 64px;
+$item-size: 48px;
+$padding: ($width - $item-size) / 2;
+$item-padding: $width - $item-size;
+$radius: $item-size / 2;
+
+@mixin icon-defaults() {
+  line-height: $icon-size;
+  height: $icon-size + ($icon-padding * 2);
+  width: $icon-size + ($icon-padding * 2);
+  font-size: $icon-size;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mat-toolbar {
   .mat-icon-button {
-    line-height: 32px;
-    height: 32px;
-    width: 32px;
-    padding: 4px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    @include icon-defaults();
   }
 
   > span {
-    margin-left: 12px;
-    margin-right: 8px;
+    margin-left: $item-padding;
+    margin-right: $padding;
   }
 }
 
+.mat-list-base[dense],
 .mat-nav-list {
   flex: 1;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  display: flex;
+  flex-direction: column;
 
-  .mat-list-text {
-    padding-right: 8px;
+  .mat-list-item {
+    overflow: hidden;
+    height: $item-size;
+    width: auto;
+
+    ::ng-deep .mat-list-item-content {
+      padding: 0;
+      justify-content: end;
+      align-items: center;
+
+      .mat-list-text {
+        width: auto;
+        padding: 0;
+        overflow: hidden;
+        flex: 1;
+      }
+
+      .badge {
+        border-radius: 8px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 1px;
+        border-style: solid;
+        overflow: hidden;
+      }
+    }
+
+    .mat-icon {
+      @include icon-defaults();
+    }
   }
 }

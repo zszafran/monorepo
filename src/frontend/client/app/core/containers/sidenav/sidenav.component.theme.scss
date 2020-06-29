@@ -1,3 +1,5 @@
+@import 'external/npm/node_modules/@angular/material/theming';
+
 @mixin core-containers-sidenav-theme($theme) {
   $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
@@ -6,15 +8,44 @@
 
   app-core-sidenav-component {
     background-color: mat-color($background, app-bar);
+    @include mat-elevation(2);
 
     .mat-toolbar {
-      background-color: mat-color($accent, 500);
-      color: mat-contrast($accent, 500);
+      background-color: mat-color($primary, 500);
+      color: mat-contrast($primary, 500);
     }
+
+    .mat-list-base[dense],
     .mat-nav-list {
+      .active {
+        background-color: mat-color($accent, 100);
+
+        .mat-icon {
+          color: mat-color($accent, 500);
+          fill: mat-color($accent, 500);
+        }
+
+        .mat-list-text {
+          color: mat-contrast($accent, 100);
+        }
+      }
+
       .mat-icon {
         color: mat-color($foreground, secondary-text);
         fill: mat-color($foreground, secondary-text);
+      }
+
+      .mat-list-text {
+        .status {
+          color: mat-color($foreground, secondary-text);
+        }
+      }
+
+      .badge {
+        background-color: mat-color($primary, 500);
+        color: mat-contrast($primary, 500);
+        border-color: mat-color($foreground, divider);
+        @include mat-elevation(1);
       }
     }
   }
@@ -22,9 +53,34 @@
 
 @mixin core-containers-sidenav-typography($config) {
   app-core-sidenav-component {
+    .mat-list-base[dense],
     .mat-nav-list {
+      .active {
+        .mat-list-text {
+          .mat-line {
+            font-weight: 500;
+          }
+        }
+      }
+
       .mat-list-text {
         @include mat-typography-level-to-styles($config, subheading-2);
+
+        .username {
+          @include mat-typography-level-to-styles($config, body-2);
+          line-height: 16px;
+        }
+
+        .status {
+          @include mat-typography-level-to-styles($config, caption);
+        }
+      }
+
+      .badge {
+        @include mat-typography-level-to-styles($config, caption);
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 11px;
       }
     }
   }

@@ -7,6 +7,7 @@ ng_ts_library(
     name = "sidenav",
     srcs = [
         "index.ts",
+        "sidenav.animations.ts",
         "sidenav.component.ts",
         "sidenav.module.ts",
     ],
@@ -18,9 +19,11 @@ ng_ts_library(
     deps = [
         "//src/frontend/client/app/core/store/layout:selectors",
         "//src/frontend/client/app/core/store/layout:state",
+        "@npm//@angular/animations",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/material",
+        "@npm//@angular/router",
         "@npm//@ngrx/store",
         "@npm//rxjs",
     ],
@@ -34,4 +37,7 @@ sass_binary(
 sass_library(
     name = "sidenav_theme",
     srcs = ["sidenav.component.theme.scss"],
+    deps = [
+        "//src/frontend/client:angular_material_theming",
+    ],
 )

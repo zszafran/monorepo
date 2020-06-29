@@ -1,8 +1,11 @@
 :host {
   display: flex;
   flex: 1;
+  flex-direction: row;
 }
 
-.mat-sidenav-container {
+.content {
+  display: flex;
   flex: 1;
+  flex-direction: column;
 }

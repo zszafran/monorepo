@@ -21,7 +21,6 @@ ng_ts_library(
         "//src/frontend/client/app/core",
         "//src/frontend/client/app/home",
         "@npm//@angular/core",
-        "@npm//@angular/material",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@ngrx/effects",

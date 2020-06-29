@@ -1,9 +1,5 @@
-<mat-sidenav-container autosize>
-  <mat-sidenav mode="side" opened>
-    <app-core-sidenav-component></app-core-sidenav-component>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-core-header-component></app-core-header-component>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<app-core-sidenav-component></app-core-sidenav-component>
+<div class="content">
+  <app-core-header-component></app-core-header-component>
+  <router-outlet></router-outlet>
+</div>

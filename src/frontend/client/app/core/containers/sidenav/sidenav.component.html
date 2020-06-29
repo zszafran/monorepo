@@ -1,32 +1,143 @@
-<mat-toolbar>
-  <button mat-icon-button (click)="toggleExpanded()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span *ngIf="isExpanded$ | async">Application</span>
-</mat-toolbar>
-<mat-nav-list>
-  <mat-list-item>
-    <mat-icon mat-list-icon>home</mat-icon>
-    <div mat-line *ngIf="isExpanded$ | async">Home</div>
-  </mat-list-item>
+<div class="content" *ngIf="expandedState$ | async as state">
+  <mat-toolbar>
+    <button mat-icon-button (click)="toggleExpanded()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span [@logoAnimation]="state">Application</span>
+  </mat-toolbar>
 
-  <mat-list-item>
-    <mat-icon mat-list-icon>dashboard</mat-icon>
-    <div mat-line *ngIf="isExpanded$ | async">Dashboard</div>
-  </mat-list-item>
+  <mat-nav-list dense>
+    <mat-list-item
+      routerLink="/home"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true, isActive: true }"
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <mat-icon mat-list-icon [@listItemIconAnimation]="state">
+        home
+      </mat-icon>
+      <div mat-line [@listItemTextAnimation]="state">
+        Home
+      </div>
+    </mat-list-item>
 
-  <mat-list-item>
-    <mat-icon mat-list-icon>account_box</mat-icon>
-    <div mat-line *ngIf="isExpanded$ | async">Profile</div>
-  </mat-list-item>
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <mat-icon mat-list-icon [@listItemIconAnimation]="state">
+        dashboard
+      </mat-icon>
+      <div mat-line [@listItemTextAnimation]="state">
+        Dashboard
+      </div>
+    </mat-list-item>
 
-  <mat-list-item>
-    <mat-icon mat-list-icon>whatshot</mat-icon>
-    <div mat-line *ngIf="isExpanded$ | async">Tending</div>
-  </mat-list-item>
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <mat-icon mat-list-icon [@listItemIconAnimation]="state">
+        account_box
+      </mat-icon>
+      <div mat-line [@listItemTextAnimation]="state">
+        Profile
+      </div>
+    </mat-list-item>
+  </mat-nav-list>
 
-  <mat-list-item>
-    <mat-icon mat-list-icon>person_search</mat-icon>
-    <div mat-line *ngIf="isExpanded$ | async">Browse</div>
-  </mat-list-item>
-</mat-nav-list>
+  <mat-divider></mat-divider>
+
+  <mat-nav-list dense>
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <mat-icon mat-list-icon [@listItemIconAnimation]="state">
+        whatshot
+      </mat-icon>
+      <div mat-line [@listItemTextAnimation]="state">
+        Tending
+      </div>
+    </mat-list-item>
+
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <mat-icon mat-list-icon [@listItemIconAnimation]="state">
+        person_search
+      </mat-icon>
+      <div mat-line [@listItemTextAnimation]="state">
+        Browse
+      </div>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <mat-divider></mat-divider>
+
+  <mat-nav-list dense>
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <img
+        matListAvatar
+        src="../../../../assets/morty.png"
+        [@listItemAvatarAnimation]="state"
+      />
+      <div mat-line [@listItemTextAnimation]="state" class="username">
+        mortyboi69
+      </div>
+      <div mat-line [@listItemTextAnimation]="state" class="status">
+        Just Chatting
+      </div>
+      <div class="badge" [@listItemBadgeAnimation]="state">1.1K</div>
+    </mat-list-item>
+
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <img
+        matListAvatar
+        src="../../../../assets/rick.png"
+        [@listItemAvatarAnimation]="state"
+      />
+      <div mat-line [@listItemTextAnimation]="state" class="username">
+        ricksanchez420
+      </div>
+      <div mat-line [@listItemTextAnimation]="state" class="status">
+        Jump King
+      </div>
+      <div class="badge" [@listItemBadgeAnimation]="state">952</div>
+    </mat-list-item>
+
+    <mat-list-item
+      [@listItemAnimation]="state"
+      matTooltip="Info about the action"
+      matTooltipPosition="right"
+    >
+      <img
+        matListAvatar
+        src="../../../../assets/jerry.jpeg"
+        [@listItemAvatarAnimation]="state"
+      />
+      <div mat-line [@listItemTextAnimation]="state" class="username">
+        xx_jerry_xx
+      </div>
+      <div mat-line [@listItemTextAnimation]="state" class="status">
+        Last of Us: Part 2
+      </div>
+      <div class="badge" [@listItemBadgeAnimation]="state">12</div>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

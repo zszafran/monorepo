@@ -7,8 +7,9 @@
 @include mat-core();
 
 $app-theme: (
-  primary: mat-palette($mat-indigo),
-  accent: mat-palette($mat-pink, A200, A100, A400),
+  primary: mat-palette($mat-pink),
+  accent: mat-palette($mat-orange),
+  attention: mat-palette($mat-purple),
   warn: mat-palette($mat-red),
   is-dark: false,
   foreground: (
@@ -29,7 +30,7 @@ $app-theme: (
     slider-off-active: rgba(black, 0.38),
   ),
   background: (
-    status-bar: map_get($mat-grey, 400),
+    status-bar: map_get($mat-grey, 300),
     app-bar: map_get($mat-grey, 200),
     background: map_get($mat-grey, 100),
     hover: rgba(black, 0.04),
@@ -43,12 +44,12 @@ $app-theme: (
     disabled-button-toggle: map_get($mat-grey, 200),
     unselected-chip: map_get($mat-grey, 300),
     disabled-list-option: map_get($mat-grey, 200),
-    tooltip: map_get($mat-grey, 700),
+    tooltip: map_get($mat-grey, 900),
   ),
 );
 
 $app-typography: mat-typography-config(
-  $font-family: 'Roboto, "Helvetica Neue", sans-serif',
+  $font-family: 'Nunito, sans-serif',
   $display-4: mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
   $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
   $display-2: mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
