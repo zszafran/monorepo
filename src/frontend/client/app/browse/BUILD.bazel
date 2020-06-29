@@ -1,0 +1,34 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "browse",
+    srcs = [
+        "browse.component.ts",
+        "browse.module.ts",
+        "browse-routing.module.ts",
+        "index.ts",
+    ],
+    angular_assets = [
+        ":browse-styles",
+        "browse.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "//src/frontend/client/app/shared/components/page",
+        "@npm//@angular/core",
+        "@npm//@angular/router",
+    ],
+)
+
+sass_binary(
+    name = "browse-styles",
+    src = "browse.component.scss",
+)
+
+sass_library(
+    name = "browse_theme",
+    srcs = ["browse.component.theme.scss"],
+)

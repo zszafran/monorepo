@@ -18,8 +18,12 @@ ng_ts_library(
     ],
     tsconfig = "//:tsconfig.client.json",
     deps = [
+        "//src/frontend/client/app/browse",
         "//src/frontend/client/app/core",
+        "//src/frontend/client/app/dashboard",
         "//src/frontend/client/app/home",
+        "//src/frontend/client/app/profile",
+        "//src/frontend/client/app/settings",
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
@@ -35,8 +39,12 @@ sass_library(
     name = "app_theme",
     srcs = ["app.component.theme.scss"],
     deps = [
+        "//src/frontend/client/app/browse:browse_theme",
         "//src/frontend/client/app/core:core_theme",
+        "//src/frontend/client/app/dashboard:dashboard_theme",
         "//src/frontend/client/app/home:home_theme",
+        "//src/frontend/client/app/profile:profile_theme",
+        "//src/frontend/client/app/settings:settings_theme",
         "//src/frontend/client/app/shared:shared_theme",
     ],
 )

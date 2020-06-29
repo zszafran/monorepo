@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { PageModule } from '../shared/components/page';
 import { HomeRoutingModule } from './home-routing.module';

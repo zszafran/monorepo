@@ -1,10 +1,18 @@
+@import 'src/frontend/client/app/browse/browse.component.theme';
 @import 'src/frontend/client/app/core/core.theme';
+@import 'src/frontend/client/app/dashboard/dashboard.component.theme';
 @import 'src/frontend/client/app/home/home.component.theme';
+@import 'src/frontend/client/app/profile/profile.component.theme';
+@import 'src/frontend/client/app/settings/settings.component.theme';
 @import 'src/frontend/client/app/shared/shared.theme';
 
 @mixin app-component-theme($theme) {
+  @include browse-theme($theme);
   @include core-theme($theme);
+  @include dashboard-theme($theme);
   @include home-theme($theme);
+  @include profile-theme($theme);
+  @include settings-theme($theme);
   @include shared-theme($theme);
 
   $foreground: map-get($theme, foreground);
@@ -24,8 +32,12 @@
 }
 
 @mixin app-component-typography($config) {
+  @include browse-typography($config);
   @include core-typography($config);
+  @include dashboard-typography($config);
   @include home-typography($config);
+  @include profile-typography($config);
+  @include settings-typography($config);
   @include shared-typography($config);
 
   body {

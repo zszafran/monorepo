@@ -1,0 +1,16 @@
+@mixin browse-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  app-browse-component {
+    // Reserved
+  }
+}
+
+@mixin browse-typography($config) {
+  app-browse-component {
+    // Reserved
+  }
+}

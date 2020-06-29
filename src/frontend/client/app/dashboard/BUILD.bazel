@@ -1,0 +1,34 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "dashboard",
+    srcs = [
+        "dashboard.component.ts",
+        "dashboard.module.ts",
+        "dashboard-routing.module.ts",
+        "index.ts",
+    ],
+    angular_assets = [
+        ":dashboard-styles",
+        "dashboard.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "//src/frontend/client/app/shared/components/page",
+        "@npm//@angular/core",
+        "@npm//@angular/router",
+    ],
+)
+
+sass_binary(
+    name = "dashboard-styles",
+    src = "dashboard.component.scss",
+)
+
+sass_library(
+    name = "dashboard_theme",
+    srcs = ["dashboard.component.theme.scss"],
+)

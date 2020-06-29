@@ -55,14 +55,6 @@
   app-core-sidenav-component {
     .mat-list-base[dense],
     .mat-nav-list {
-      .active {
-        .mat-list-text {
-          .mat-line {
-            font-weight: 500;
-          }
-        }
-      }
-
       .mat-list-text {
         @include mat-typography-level-to-styles($config, subheading-2);
 
