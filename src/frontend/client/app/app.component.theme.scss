@@ -19,7 +19,7 @@
   $background: map-get($theme, background);
   $primary: map-get($theme, primary);
 
-  body {
+  @at-root body#{&} {
     background-color: mat-color($background, background);
   }
 

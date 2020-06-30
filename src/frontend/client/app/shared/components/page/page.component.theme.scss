@@ -5,12 +5,12 @@
   $accent: map-get($theme, accent);
 
   app-shared-page-component {
-    // Reserved
+    color: mat-color($foreground, text);
   }
 }
 
 @mixin shared-components-page-typography($config) {
   app-shared-page-component {
-    // Reserved
+    @include mat-typography-level-to-styles($config, body-1);
   }
 }

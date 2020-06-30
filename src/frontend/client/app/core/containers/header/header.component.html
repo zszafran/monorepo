@@ -1,7 +1,14 @@
 <mat-toolbar>
-  <span class="title">{{ title | async }}</span>
+  <span class="title">{{ title$ | async }}</span>
 
   <span class="fill"></span>
+
+  <mat-slide-toggle
+    class="example-margin"
+    [checked]="darkMode$ | async"
+    (change)="onDarkModeToggle()"
+  >
+  </mat-slide-toggle>
 
   <span>Right Aligned Text</span>
 </mat-toolbar>

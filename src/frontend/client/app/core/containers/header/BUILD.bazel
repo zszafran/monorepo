@@ -17,6 +17,8 @@ ng_ts_library(
     tsconfig = "//:tsconfig.client.json",
     deps = [
         "//src/frontend/client/app/core/store/router:selectors",
+        "//src/frontend/client/app/core/store/settings:selectors",
+        "//src/frontend/client/app/core/store/settings:state",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/material",

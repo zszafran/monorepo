@@ -23,6 +23,7 @@ ng_ts_library(
     deps = [
         "//src/frontend/client/app/core/store/layout:state",
         "//src/frontend/client/app/core/store/router:state",
+        "//src/frontend/client/app/core/store/settings:state",
         "@npm//@ngrx/router-store",
     ],
 )
@@ -41,6 +42,7 @@ ng_ts_library(
         ":state",
         "//src/frontend/client/app/core/store/layout",
         "//src/frontend/client/app/core/store/router",
+        "//src/frontend/client/app/core/store/settings",
         "@npm//@angular/core",
         "@npm//@ngrx/effects",
         "@npm//@ngrx/router-store",

@@ -6,7 +6,7 @@
 
 @include mat-core();
 
-$app-theme: (
+$app-default-theme: (
   primary: mat-palette($mat-pink),
   accent: mat-palette($mat-orange),
   attention: mat-palette($mat-purple),
@@ -48,11 +48,53 @@ $app-theme: (
   ),
 );
 
+$app-dark-theme: (
+  primary: mat-palette($mat-pink),
+  accent: mat-palette($mat-orange),
+  attention: mat-palette($mat-purple),
+  warn: mat-palette($mat-red),
+  is-dark: true,
+  foreground: (
+    base: white,
+    divider: $light-dividers,
+    dividers: $light-dividers,
+    disabled: $light-disabled-text,
+    disabled-button: rgba(white, 0.3),
+    disabled-text: $light-disabled-text,
+    elevation: black,
+    hint-text: $light-disabled-text,
+    secondary-text: $light-secondary-text,
+    icon: white,
+    icons: white,
+    text: white,
+    slider-min: white,
+    slider-off: rgba(white, 0.3),
+    slider-off-active: rgba(white, 0.3),
+  ),
+  background: (
+    status-bar: black,
+    app-bar: map_get($mat-grey, 900),
+    background: #303030,
+    hover: rgba(white, 0.04),
+    card: map_get($mat-grey, 800),
+    dialog: map_get($mat-grey, 800),
+    disabled-button: rgba(white, 0.12),
+    raised-button: map-get($mat-grey, 800),
+    focused-button: $light-focused,
+    selected-button: map_get($mat-grey, 900),
+    selected-disabled-button: map_get($mat-grey, 800),
+    disabled-button-toggle: black,
+    unselected-chip: map_get($mat-grey, 700),
+    disabled-list-option: black,
+    tooltip: map_get($mat-grey, 700),
+  ),
+);
+
 $app-typography: mat-typography-config(
-  $font-family: 'Nunito, sans-serif',
-  $display-4: mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
-  $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
-  $display-2: mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $font-family: 'Nunito, Roboto, sans-serif',
+  $display-4: mat-typography-level(112px, 112px, 300),
+  $display-3: mat-typography-level(56px, 56px, 400),
+  $display-2: mat-typography-level(45px, 48px, 400),
   $display-1: mat-typography-level(34px, 40px, 400),
   $headline: mat-typography-level(24px, 32px, 400),
   $title: mat-typography-level(20px, 32px, 500),
@@ -76,7 +118,12 @@ $app-typography: mat-typography-config(
   @include app-component-typography($config);
 }
 
-@include theme($app-theme);
+@include theme($app-default-theme);
+
+.dark-theme {
+  @include theme($app-dark-theme);
+}
+
 @include typography($app-typography);
 
 html,
