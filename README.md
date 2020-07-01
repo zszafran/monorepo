@@ -6,6 +6,8 @@ This is a proof-of-concept repo
 
 `yarn install`
 
+`yarn certs`
+
 `yarn frontend:client:dev`
 
 `yarn frontend:client:prod`

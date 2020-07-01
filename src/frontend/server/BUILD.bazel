@@ -9,12 +9,12 @@ ts_library(
         include = ["**/*.ts"],
         exclude = ["**/*spec.ts"],
     ),
-    data = [],
     tsconfig = "//:tsconfig.server.json",
     deps = [
         "//src/frontend/client:main_server",
         "@npm//@nestjs",
         "@npm//@types",
+        "@npm//compression",
         "@npm//tslib",
     ],
 )
