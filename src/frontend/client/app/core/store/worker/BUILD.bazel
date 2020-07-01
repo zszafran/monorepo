@@ -1,0 +1,50 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "state",
+    srcs = [
+        "worker.actions.ts",
+        "worker.state.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "@npm//@ngrx/store",
+    ],
+)
+
+ng_ts_library(
+    name = "selectors",
+    srcs = [
+        "worker.selectors.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":state",
+        "//src/frontend/client/app/core/store:feature",
+        "//src/frontend/client/app/core/store:state",
+        "@npm//@ngrx/store",
+    ],
+)
+
+ng_ts_library(
+    name = "worker",
+    srcs = [
+        "index.ts",
+        "worker.effects.ts",
+        "worker.reducer.ts",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        ":state",
+        "//src/frontend/client/app/core/store/app:selectors",
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "@npm//@angular/material",
+        "@npm//@angular/service-worker",
+        "@npm//@ngrx/effects",
+        "@npm//@ngrx/store",
+        "@npm//rxjs",
+    ],
+)

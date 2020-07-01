@@ -18,12 +18,18 @@
   $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
   $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
 
   @at-root body#{&} {
     background-color: mat-color($background, background);
   }
 
   app-component {
+    a {
+      color: mat-color($accent, 700);
+      text-decoration: none;
+    }
+
     .mat-drawer {
       background: transparent;
       @include mat-elevation(2);

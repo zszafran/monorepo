@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
-  return storeLogger()(reducer);
+  return storeLogger({
+    collapsed: true,
+  })(reducer);
 }
 
 export const metaReducers: MetaReducer<any>[] = [debug];

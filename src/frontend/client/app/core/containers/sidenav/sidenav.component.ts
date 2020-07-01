@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import * as appSelectors from '../../store/app/app.selectors';
 import * as layoutActions from '../../store/layout/layout.actions';
 import * as layoutSelectors from '../../store/layout/layout.selectors';
 import * as animations from './sidenav.animations';
@@ -22,11 +22,13 @@ import * as animations from './sidenav.animations';
   ],
 })
 export class SidenavComponent {
-  readonly isExpanded$: Observable<boolean> = this.store.select(
+  readonly title$ = this.store.select(appSelectors.selectTitle);
+
+  readonly isExpanded$ = this.store.select(
     layoutSelectors.selectLeftSidenavExpanded,
   );
 
-  readonly expandedState$: Observable<string> = this.isExpanded$.pipe(
+  readonly expandedState$ = this.isExpanded$.pipe(
     map((expanded) => (expanded ? 'expanded' : 'collapsed')),
   );
 

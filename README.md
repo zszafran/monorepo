@@ -4,15 +4,17 @@ This is a proof-of-concept repo
 
 ## Quick Start
 
-```yarn install```
+`yarn install`
 
-```yarn frontend:client:devserver```
+`yarn frontend:client:dev`
 
-```yarn frontend:server```
+`yarn frontend:client:prod`
 
-```yarn lint```
+`yarn frontend:server`
 
-```yarn lint:fix```
+`yarn lint`
+
+`yarn lint:fix`
 
 ## Visual Studio Code - Dev Container
 

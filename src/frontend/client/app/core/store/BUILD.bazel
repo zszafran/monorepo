@@ -21,9 +21,11 @@ ng_ts_library(
     ],
     tsconfig = "//:tsconfig.client.json",
     deps = [
+        "//src/frontend/client/app/core/store/app:state",
         "//src/frontend/client/app/core/store/layout:state",
         "//src/frontend/client/app/core/store/router:state",
         "//src/frontend/client/app/core/store/settings:state",
+        "//src/frontend/client/app/core/store/worker:state",
         "@npm//@ngrx/router-store",
     ],
 )
@@ -40,9 +42,11 @@ ng_ts_library(
     deps = [
         ":feature",
         ":state",
+        "//src/frontend/client/app/core/store/app",
         "//src/frontend/client/app/core/store/layout",
         "//src/frontend/client/app/core/store/router",
         "//src/frontend/client/app/core/store/settings",
+        "//src/frontend/client/app/core/store/worker",
         "@npm//@angular/core",
         "@npm//@ngrx/effects",
         "@npm//@ngrx/router-store",

@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="toggleExpanded()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span [@logoAnimation]="state">Application</span>
+    <span [@logoAnimation]="state">{{ title$ | async }}</span>
   </mat-toolbar>
 
   <mat-nav-list dense>

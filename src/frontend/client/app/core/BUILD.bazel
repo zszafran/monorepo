@@ -14,6 +14,7 @@ ng_ts_library(
         "//src/frontend/client/app/core/containers",
         "//src/frontend/client/app/core/store",
         "@npm//@angular/core",
+        "@npm//@angular/material",
     ],
 )
 

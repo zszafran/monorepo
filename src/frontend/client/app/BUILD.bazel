@@ -27,6 +27,7 @@ ng_ts_library(
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
+        "@npm//@angular/service-worker",
         "@npm//@ngrx/effects",
         "@npm//@ngrx/store",
         "@npm//@ngrx/store-devtools",

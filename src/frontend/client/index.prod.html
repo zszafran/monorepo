@@ -5,6 +5,12 @@
     <title>Angular Bazel Example</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is an example of building an Angular app at scale."
+    />
+    <meta name="theme-color" content="#43a047" />
+    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
     <!-- The Angular application will be bootstrapped into this element. -->
@@ -14,7 +20,7 @@
     <script nomodule src="/core.min.js"></script>
     <script nomodule src="/system.js"></script>
 
-    <!-- TODO: figure out how diff. loading interacts with 
+    <!-- TODO: figure out how diff. loading interacts with
     https://www.npmjs.com/package/rollup-plugin-bundle-html -->
     <script type="module" src="/bundle-es2015.min/index.js"></script>
     <script nomodule="" src="/bundle-es5.min/index.js"></script>
