@@ -2,3 +2,4 @@ node_modules
 dist
 bazel-out
 secrets
+.terraform
