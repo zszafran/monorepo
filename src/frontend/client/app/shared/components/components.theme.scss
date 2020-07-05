@@ -1,9 +1,12 @@
+@import 'src/frontend/client/app/shared/components/avatar/avatar.component.theme';
 @import 'src/frontend/client/app/shared/components/page/page.component.theme';
 
 @mixin shared-components-theme($theme) {
+  @include shared-components-avatar-theme($theme);
   @include shared-components-page-theme($theme);
 }
 
 @mixin shared-components-typography($config) {
+  @include shared-components-avatar-typography($config);
   @include shared-components-page-typography($config);
 }

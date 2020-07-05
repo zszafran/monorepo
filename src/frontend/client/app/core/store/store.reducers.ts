@@ -5,6 +5,7 @@ import * as layout from './layout';
 import * as router from './router';
 import * as settings from './settings';
 import { State } from './store.state';
+import * as users from './users';
 import * as worker from './worker';
 
 export const featureReducers = combineReducers<State>({
@@ -12,6 +13,7 @@ export const featureReducers = combineReducers<State>({
   layout: layout.reducer,
   router: router.reducer,
   settings: settings.reducer,
+  users: users.reducer,
   worker: worker.reducer,
 });
 

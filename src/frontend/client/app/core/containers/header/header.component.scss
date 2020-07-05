@@ -1,3 +1,33 @@
 .fill {
   flex: 1;
 }
+
+.mat-slide-toggle {
+  margin-right: 16px;
+}
+
+.mat-divider {
+  height: 32px;
+}
+
+.mat-button.user {
+  margin-left: 12px;
+  padding: 0;
+
+  ::ng-deep .mat-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+
+    app-shared-avatar-component {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+    }
+
+    .mat-icon {
+      margin-left: 8px;
+    }
+  }
+}

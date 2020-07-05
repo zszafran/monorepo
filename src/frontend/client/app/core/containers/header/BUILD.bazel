@@ -19,6 +19,8 @@ ng_ts_library(
         "//src/frontend/client/app/core/store/router:selectors",
         "//src/frontend/client/app/core/store/settings:selectors",
         "//src/frontend/client/app/core/store/settings:state",
+        "//src/frontend/client/app/core/store/users:selectors",
+        "//src/frontend/client/app/shared/components/avatar",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/material",

@@ -10,6 +10,13 @@
       // background-color: mat-color($primary, 700);
       // color: mat-contrast($primary, 700);
       //background-color: mat-color($background, app-bar);
+
+      .mat-button.user {
+        .mat-icon {
+          color: mat-color($foreground, secondary-text);
+          fill: mat-color($foreground, secondary-text);
+        }
+      }
     }
   }
 }
@@ -17,6 +24,10 @@
 @mixin core-containers-header-typography($config) {
   app-core-header-component {
     .title {
+      @include mat-typography-level-to-styles($config, headline);
+    }
+
+    .user {
       @include mat-typography-level-to-styles($config, subheading-2);
     }
   }

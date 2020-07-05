@@ -1,0 +1,16 @@
+@mixin shared-components-avatar-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  app-shared-avatar-component {
+    color: mat-color($foreground, text);
+  }
+}
+
+@mixin shared-components-avatar-typography($config) {
+  app-shared-avatar-component {
+    @include mat-typography-level-to-styles($config, body-1);
+  }
+}

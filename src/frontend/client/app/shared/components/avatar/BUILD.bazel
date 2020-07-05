@@ -1,0 +1,33 @@
+load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "avatar",
+    srcs = [
+        "avatar.component.ts",
+        "avatar.module.ts",
+        "index.ts",
+    ],
+    angular_assets = [
+        ":avatar-styles",
+        "avatar.component.html",
+    ],
+    tsconfig = "//:tsconfig.client.json",
+    deps = [
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "@npm//rxjs",
+    ],
+)
+
+sass_binary(
+    name = "avatar-styles",
+    src = "avatar.component.scss",
+)
+
+sass_library(
+    name = "avatar_theme",
+    srcs = ["avatar.component.theme.scss"],
+)
