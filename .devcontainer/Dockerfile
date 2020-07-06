@@ -4,7 +4,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
   && apt-get -y install --no-install-recommends apt-utils apt-transport-https 2>&1 \
-  && apt-get -y install git procps lsb-release wget curl gnupg tar unzip
+  && apt-get -y install git procps lsb-release wget curl gnupg tar unzip make \
+  build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
+  wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev \
+  liblzma-dev python-openssl
 
 # GoLang
 RUN wget -O go.tgz "https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz"; \
@@ -14,7 +17,7 @@ ENV PATH=$PATH:/usr/local/go/bin
 ENV GOPATH /go
 
 # Google Cloud
-RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add - 
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Kubernetes
@@ -32,6 +35,10 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 # NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
+# Python
+RUN curl -sL https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash -
+ENV PATH="/root/.pyenv/bin:$PATH"
+
 # Terraform
 RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip \
   && unzip terraform.zip \
@@ -46,13 +53,15 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Dev Packages
+RUN pyenv install 3.7.8
+RUN pyenv global 3.7.8
 RUN npm install -g @angular/cli
 RUN npm install -g @nestjs/cli
 RUN go get github.com/bazelbuild/buildtools/buildifier
 RUN go get github.com/bazelbuild/buildtools/buildozer
 
 # Dev Env
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+RUN curl -L git.io/antigen > ~/antigen.zsh
 ENV BAZEL_JAVAC_OPTS="-J-Xms12g -J-Xmx12g"
 ENV DEBIAN_FRONTEND=dialog
 COPY zshrc /root/.zshrc

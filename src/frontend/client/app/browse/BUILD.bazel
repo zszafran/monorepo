@@ -1,4 +1,4 @@
-load("//src/tools:angular_ts_library.bzl", "ng_ts_library")
+load("//tools:angular_ts_library.bzl", "ng_ts_library")
 load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
 
 package(default_visibility = ["//src/frontend/client:internal"])
