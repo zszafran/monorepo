@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "author": "",
   "scripts": {
+    "bazel": "bazelisk",
     "certs": "tls-keygen ./secrets/key.pem ./secrets/cert.pem",
     "frontend:client:dev": "ibazel run //src/frontend/client:devserver",
     "frontend:client:prod": "ibazel run //src/frontend/client:prodserver",
