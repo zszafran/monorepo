@@ -198,24 +198,13 @@ kubectl_configure(
     build_srcs = True,
 )
 
-load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_defaults", "k8s_repositories")
+load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_repositories")
 
 k8s_repositories()
 
 load("@io_bazel_rules_k8s//k8s:k8s_go_deps.bzl", k8s_go_deps = "deps")
 
 k8s_go_deps()
-
-k8s_defaults(
-    name = "k8s_deploy",
-    cluster = "_".join([
-        "gke",
-        "internal-200822",
-        "us-west1-a",
-        "angular-bazel-example",
-    ]),
-    kind = "deployment",
-)
 
 # ==================================================================
 # Gazelle

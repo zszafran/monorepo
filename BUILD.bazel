@@ -1,5 +1,4 @@
 load("@npm_bazel_typescript//:index.bzl", "ts_config")
-load("@k8s_deploy//:defaults.bzl", "k8s_deploy")
 load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
 
 package(default_visibility = ["//:__subpackages__"])
@@ -32,12 +31,4 @@ ts_config(
     name = "tsconfig-client",
     src = "tsconfig.client.json",
     deps = [":tsconfig.json"],
-)
-
-k8s_deploy(
-    name = "deploy",
-    images = {
-        "gcr.io/internal-200822/src:nodejs_image": "//src:image",
-    },
-    template = ":deployment.yaml",
 )

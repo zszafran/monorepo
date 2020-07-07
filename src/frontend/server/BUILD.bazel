@@ -1,6 +1,5 @@
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
-load("@k8s_deploy//:defaults.bzl", "k8s_deploy")
 load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
 load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 
@@ -49,12 +48,4 @@ container_image(
     name = "container",
     base = ":image",
     tags = ["local"],
-)
-
-k8s_deploy(
-    name = "deploy",
-    images = {
-        "gcr.io/internal-200822/src:nodejs_image": ":container",
-    },
-    template = "//:deployment.yaml",
 )
