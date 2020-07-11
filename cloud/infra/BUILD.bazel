@@ -1,6 +1,0 @@
-sh_binary(
-    name = "bootstrap",
-    srcs = ["bootstrap.sh"],
-    data = ["@gcloud_sdk//:bin/gcloud"],
-    deps = ["@bazel_tools//tools/bash/runfiles"],
-)

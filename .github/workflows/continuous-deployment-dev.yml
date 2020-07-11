@@ -20,9 +20,9 @@ jobs:
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          version: '290.0.1'
+          version: "290.0.1"
           service_account_key: ${{ secrets.GCP_SERVICE_KEY }}
           project_id: ${{ secrets.GCP_PROJECT }}
 
       - run: |-
-          gcloud deployment-manager deployments list
+          gcloud deployment-manager deployments update dev-project --config cloud/dev.yaml
