@@ -1,0 +1,21 @@
+imports:
+  - path: project.py
+
+resources:
+  - name: PROJECT
+    type: project.py
+    properties:
+      organization: "117039493360"
+      billing_account: "01E8E9-0394CA-2299DD"
+      project_id: "prod-282200"
+      project_name: "Prod"
+      owner: root@zms.network
+      apis:
+        - deploymentmanager.googleapis.com
+        - pubsub.googleapis.com
+        - monitoring.googleapis.com
+        - logging.googleapis.com
+      iam:
+        - role: roles/owner
+          members:
+            - user:root@zms.network
