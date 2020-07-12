@@ -40,6 +40,8 @@ gcloud iam service-accounts create github \
   --description="GitHub service account" \
   --display-name="GitHub"
 
+
+# Wrong, need to add service account 470017183571@cloudservices.gserviceaccount.com
 gcloud projects add-iam-policy-binding \
  ${GCP_PROJECT} \
  --member="serviceAccount:github@${GCP_PROJECT}.iam.gserviceaccount.com" \

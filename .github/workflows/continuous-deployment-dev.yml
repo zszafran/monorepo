@@ -1,0 +1,28 @@
+name: Continuous Deployment (DEV)
+
+on:
+  push:
+    branches:
+      - devel
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    env:
+      PROJECT_ID: ${{ secrets.GCP_PROJECT }}
+
+    steps:
+      - uses: actions/checkout@v1
+
+      # Setup gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "290.0.1"
+          service_account_key: ${{ secrets.GCP_SERVICE_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT }}
+
+      - run: |-
+          gcloud deployment-manager deployments update dev-project --config cloud/dev.yaml

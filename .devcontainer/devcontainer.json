@@ -26,7 +26,14 @@
     "typescript.format.enable": true,
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "python.pythonPath": "/root/.pyenv/shims/python",
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Path": "/root/.pyenv/shims/autopep8",
+    "python.linting.lintOnSave": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "/root/.pyenv/shims/pylint"
   },
   "appPort": ["8080:8080", "35729:35729"],
   "mounts": [

@@ -55,6 +55,7 @@ RUN apt-get update \
 # Dev Packages
 RUN pyenv install 3.7.8
 RUN pyenv global 3.7.8
+RUN /root/.pyenv/shims/pip install pylint autopep8
 RUN npm install -g @angular/cli
 RUN npm install -g @nestjs/cli
 RUN go get github.com/bazelbuild/buildtools/buildifier
